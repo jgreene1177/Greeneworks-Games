@@ -1,3 +1,11 @@
+// Mapping of Game IDs to Game Names
+const gameNames = {
+    '960090': 'Bloons TD 6',
+    // Add other game IDs and names as needed
+};
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     updateGameList();
 });
@@ -24,7 +32,7 @@ function displayGame(gameId, playerCount) {
 
     const title = document.createElement('span');
     title.classList.add('game-title');
-    title.textContent = `Game ID: ${gameId}`; // Displaying Game ID for demonstration
+    title.textContent = gameNames[gameId] || `Game ID: ${gameId}`; // Displaying Game Name
 
     const count = document.createElement('span');
     count.textContent = `Current Players: ${playerCount}`;
