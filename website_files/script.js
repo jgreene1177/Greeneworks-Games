@@ -6,7 +6,7 @@ function updateGameList() {
     // Example for a specific game - replace with actual game ID
     const gameId = '960090'; // This is an example Game ID (for Team Fortress 2)
 
-    fetch(`https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?key=440EB49F041A73365B2CD37D4CF39D4E&appid=${gameId}`)
+    fetch(`netlify/functions/steamProxy`)
         .then(response => response.json())
         .then(data => {
             // Assuming 'player_count' is the field in the response
