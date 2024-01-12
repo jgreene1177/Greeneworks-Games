@@ -24,7 +24,7 @@ function updateGameList() {
     fetch('/.netlify/functions/steamProxy')
         .then(response => response.json())
         .then(data => {
-            displayGame(gameId, data.response.player_count);
+            displayGame(gameList, gameId, data.response.player_count);
         })
         .catch(error => console.error('Error fetching data:', error));
 
