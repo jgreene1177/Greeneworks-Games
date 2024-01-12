@@ -15,20 +15,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updateGameList() {
-
-	const gameList = document.getElementById('game-list');
+    const gameList = document.getElementById('game-list');
     gameList.innerHTML = ''; // Clear existing content
     
     gameIDs.forEach(gameId => {
-
-    fetch('/.netlify/functions/steamProxy')
+        fetch('/.netlify/functions/steamProxy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ gameId: gameId })
+        })
         .then(response => response.json())
         .then(data => {
             displayGame(gameList, gameId, data.response.player_count);
         })
         .catch(error => console.error('Error fetching data:', error));
-
-	});
+    });
 }
 
 function displayGame(gameList, gameId, playerCount) {
