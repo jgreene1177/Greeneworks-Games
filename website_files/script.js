@@ -1,8 +1,12 @@
 // Mapping of Game IDs to Game Names
 const gameNames = {
     '960090': 'Bloons TD 6',
+	'1938090': 'Call of Duty',
+	'1240440': 'Halo Infinite',
     // Add other game IDs and names as needed
 };
+
+const gameIDs = ['960090', '1938090', '1240440'];
 
 
 
@@ -11,21 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updateGameList() {
-    // Example for a specific game - replace with actual game ID
-    const gameId = '960090'; // This is an example Game ID (for Team Fortress 2)
+
+	const gameList = document.getElementById('game-list');
+    gameList.innerHTML = ''; // Clear existing content
+    
+    gameIDs.forEach(gameId => {
 
     fetch('/.netlify/functions/steamProxy')
         .then(response => response.json())
         .then(data => {
-            // Assuming 'player_count' is the field in the response
             displayGame(gameId, data.response.player_count);
         })
         .catch(error => console.error('Error fetching data:', error));
 }
 
 function displayGame(gameId, playerCount) {
-    const gameList = document.getElementById('game-list');
-    gameList.innerHTML = ''; // Clear existing content
 
     const gameItem = document.createElement('div');
     gameItem.classList.add('game-item');
