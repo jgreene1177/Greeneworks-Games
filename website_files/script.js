@@ -27,9 +27,9 @@ function updateGameList() {
             displayGame(gameId, data.response.player_count);
         })
         .catch(error => console.error('Error fetching data:', error));
-}
+}}
 
-function displayGame(gameId, playerCount) {
+function displayGame(gameList, gameId, playerCount) {
 
     const gameItem = document.createElement('div');
     gameItem.classList.add('game-item');
