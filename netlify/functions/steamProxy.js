@@ -4,10 +4,13 @@ const axios = require('axios');
 
 exports.handler = async function(event, context) {
   try {
+      
+    const { gameId } = JSON.parse(event.body);
+    
     const response = await axios.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/', {
       params: {
         key: '440EB49F041A73365B2CD37D4CF39D4E',
-        appid: '960090',
+        appid: gameId,
       },
     });
     return {
