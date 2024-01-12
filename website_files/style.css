@@ -27,13 +27,34 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect for background color */
+}
+
+.game-item:hover {
+    background-color: #555; /* Change the background color on hover */
 }
 
 .game-title {
     font-weight: bold;
+    transition: font-size 0.3s ease; /* Add a smooth transition effect for font size */
+}
+
+.game-title:hover {
+    font-size: 1.2em; /* Increase font size on hover */
 }
 
 .last-updated {
     font-size: 0.8em;
     color: #999; /* Lighter gray text color */
+}
+
+.game-link {
+    color: #007BFF; /* Change link color */
+    text-decoration: underline; /* Add underlines to links */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Add smooth transitions */
+}
+
+.game-link:hover {
+    color: #0056b3; /* Change link color on hover */
+    text-decoration: none; /* Remove underline on hover */
 }
